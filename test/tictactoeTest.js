@@ -80,7 +80,9 @@ describe('tictactoe.js', () => {
         onSecondCall().returns('O');
 
       window.updateState(squares[8]);
+
       window.updateState(squares[0]);
+
 
       expect(squares[8].innerHTML).to.equal('X');
       expect(squares[0].innerHTML).to.equal('O');
@@ -168,6 +170,7 @@ describe('tictactoe.js', () => {
       // -----------
       //  O | O |   
 
+      window.turn = 5;
       window.checkWinner();
 
       expect(spy.firstCall.args[0]).to.equal('Player X Won!');
@@ -201,7 +204,7 @@ describe('tictactoe.js', () => {
 
     it('increments the value of the "turn" variable', () => {
       expect(window.turn).to.equal(0);
-
+      debugger;
       window.doTurn(squares[0]);
 
       expect(window.turn).to.equal(1);
@@ -222,7 +225,7 @@ describe('tictactoe.js', () => {
 
       expect(spy.calledOnce).to.be.true;
     });
-
+console.log("before test")
     it('invokes the setMessage() function with the argument "Tie game." when the game is tied', () => {
       sinon.useFakeXMLHttpRequest();
 
@@ -240,7 +243,7 @@ describe('tictactoe.js', () => {
 
       expect(spy.firstCall.args[0]).to.equal('Tie game.');
     });
-
+console.log("after test")
     it('resets the board and the "turn" counter when a game is won', () => {
       sinon.useFakeXMLHttpRequest();
 
@@ -385,7 +388,6 @@ describe('AJAX interactions with the Rails API', () => {
     return JSON.stringify(jsonObj);
   }
   // End helper function definitions
-
   describe('Clicking the button#previous element', () => {
     beforeEach(() => {
       xhr = sinon.useFakeXMLHttpRequest();

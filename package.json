@@ -4,6 +4,7 @@
   "description": "Second half of the final lab in Learn.co's Rails and JavaScript topic.",
   "main": "app/assets/javascripts/tictactoe.js",
   "scripts": {
+    "only-test": "mocha --inspect-brk test/testSetup.js",
     "test": "mocha -R mocha-multi --reporter-options nyan=-,json=.results.json"
   },
   "repository": {
